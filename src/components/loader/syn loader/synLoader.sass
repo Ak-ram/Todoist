@@ -1,0 +1,28 @@
+.synLoader
+    display: flex
+    justify-content: center
+    align-items: center
+    div
+        width: 3px
+        height: 10px
+        background: #acacac
+        margin: 0 2px
+        animation: motion .5s linear infinite alternate
+    // @for $i from 1 to 6
+    //     div:nth-child(#{$i})
+    //         animation-delay: $i * .05 +1s
+    div:nth-child(1)
+        animation-delay: 0
+    div:nth-child(2)
+        animation-delay: 0.1s
+    div:nth-child(3)
+        animation-delay: 0.2s
+    div:nth-child(4)
+        animation-delay: 0.3s
+    div:nth-child(5)
+        animation-delay: 0.4s
+@keyframes motion
+    0%
+        height: 0px
+    100%
+        height: 10px

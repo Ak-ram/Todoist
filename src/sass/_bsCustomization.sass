@@ -1,0 +1,255 @@
+@use 'sass:map'
+
+// #Customize bs utilites [var, func,mixins,...]
+$custom-colors: ('gold': #e6b948, 'semiRed': #e44332,'semiRed-faded':#e4432f0d, 'water': #1f60c2,'darkApp-body': #1f1f1f,'darkApp-navbar': #282828,'secondary-200':#495057)
+$theme-colors: () // just for defining
+$theme-colors: map.merge($custom-colors,$theme-colors)
+@import '../../node_modules/bootstrap/scss/bootstrap'
+
+// todoist scroll bar
+.todoist-scrollbar
+    &::-webkit-scrollbar
+        width: 5px
+        height: 5px
+    &::-webkit-scrollbar-track
+        background: #2e2e2e
+    &::-webkit-scrollbar-thumb
+        background: #8b8b8b
+        border-radius: 15px
+
+// tooltip
+.hint
+    &::before
+        position: absolute
+        content: ""
+        width: 10px
+        top: -4px
+        height: 10px
+        background: #000000
+        transform: rotate3d(1, 1, 1, 45deg)
+
+// hover classes
+.hover-gray
+    &:hover
+        background: #363636 !important
+        color: #fff !important
+.hover-dark
+    &:hover
+        background: #1f1f1f
+.hover-semiRed
+    &:hover
+        background: #de4c4a
+        color: #fff !important
+.hover-text-semiRed
+    &:hover
+        color: #de4c4a !important
+.hover-semiRed-faded
+    &:hover
+        background: map-get($theme-colors, 'semiRed-faded')
+.show-on-hover
+    &:hover
+        opacity: 1
+.fade-on-hover
+    &:hover
+        opacity: 0
+
+// focusing classes
+.focus-gray
+    &:focus
+        box-shadow: 0 0 0px 4px #484848
+.notify-btn-focusing
+    &:focus
+        color: #fff !important
+        border-top: 1px solid #ffffff !important
+        font-weight: bold !important
+
+// draggable classes
+.smooth
+    transition: all .5s linear
+.smooth-fast
+    transition: all .2s linear
+.blank-dark-element
+    backdrop-filter: brightness(0)
+    filter: brightness(0)
+.user-select-blocked
+    user-select: none
+.flash-effect
+    filter: blur(.8px)
+.drop-here
+    &::before
+        content: ''
+        position: absolute
+        height: 2px
+        width: 100%
+        top: 100%
+        background: #3c2f2f
+        opacity: 0
+        display: inline-block
+    &::after
+        content: "+"
+        font-size: 30px
+        padding: 0px
+        font-weight: lighter
+        font-family: ui-sans-serif
+        position: absolute
+        border-radius: 50%
+        width: 25px
+        height: 25px
+        left: 50%
+        line-height: 25px
+        display: inline-block
+        text-align: center
+        top: 100%
+        transform: translate(-50%, -50%)
+        z-index: 4
+        background: #f57062
+        opacity: 0
+        display: inline-block
+.show-drop-here
+    &::before,&::after
+        opacity: 1 !important
+
+// filter classes
+.foggy
+    filter: blur(1px)
+    pointer-events: none
+    user-select: none
+
+// cursort and pointer-event classes
+.cursor-pointer
+    cursor: pointer
+.cursor-default
+    cursor: default
+.cursor-text
+    cursor: text
+.cursor-move
+    cursor: move
+.cursor-no-drop
+    cursor: no-drop !important
+.pointer-events-none
+    pointer-events: none
+.pointer-events-auto
+    pointer-events: auto
+.pointer-events-all-i
+    pointer-events: all !important
+
+// z-index classes
+@for $i from 2 to 200
+    .z-#{$i}
+        z-index: $i
+
+// line-height classes
+@for $i from 1 to 100
+    .lh-#{$i}
+        line-height: $i + 0px
+
+// dimension classes
+.vh-100
+    height: 100vh
+.w-fit-content
+    width: fit-content
+.w-0
+    width: 0px !important
+    min-width: 0px !important
+.min-max-aside-width
+    max-width: 400px
+
+// --buttons--
+.btn-check:focus + .btn, .btn:focus,.btn-check:checked + .btn-danger:focus, .btn-check:active + .btn-danger:focus, .btn-danger:active:focus, .btn-danger.active:focus, .show > .btn-danger.dropdown-toggle:focus
+    box-shadow: none
+
+// --links--
+a,.link-hover-underline
+    text:
+        decoration: none
+        transform: capitalize // active link
+    color: #6c757d
+    &:hover
+        text-decoration: underline
+        color: #6c757d
+.link-hover-none
+    @extend .link-hover-underline
+    &:hover
+        text-decoration: none
+.dropdown-item.active, .dropdown-item:active
+    background: transparent
+    color: #6c757d
+.svg-drag-semiRed
+    path
+        stroke: map-get($theme-colors, 'semiRed')
+.svg-drag-white
+    path
+        stroke: #fff
+
+// --select box--
+select
+    appearance: none
+    outline: none
+
+// --typography--
+.fs-sm
+    font-size: max(.2rem + 1vw,12px)
+.fs-md
+    font-size: calc(1rem + 1vw)
+
+// outline classes
+.outline-none
+    outline: none
+.outline-1-on-hover
+    &:hover
+        outline: 1px solid #5e5656
+        outline-offset: 1px
+        border-radius: 1px
+
+// --Animations--
+.rotate
+    animation: rotate 2s infinite linear
+.rotate-0
+    transition: transform .3s linear
+    transform: rotate(0deg)
+.rotate-90
+    transition: transform .3s linear
+    transform: rotate(90deg)
+.rotate-x-slow
+    animation: rotate 20s infinite linear
+.shake-y
+    animation: shake-y .4s infinite alternate linear
+.upcoming-calender-flipping-week
+    transform: translateY(-100px)
+@keyframes rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+@keyframes shake-y
+    0%
+        transform: translateY(0)
+    100%
+        transform: translateY(3px)
+
+// --Others--
+.mask
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+.checkbox-info
+    &[type='checkbox']
+        transition: all 1s
+        accent-color: green
+.labelHoverEffect
+    div:first-child
+        box-shadow: 0 6px 6px black !important
+    div:last-child
+        svg:first-of-type
+            fill: map-get($theme-colors, 'semiRed') !important
+.todoist-selection
+    &::selection
+                background-color: #131313
+
+@import '../layout/navbar/_navbar'
+@import '../layout/footer/_footer'
+@import '../layout/members/_members'
+@import '../layout/celebrates/_celebrates'
+@import '../layout/face/_face'

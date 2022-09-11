@@ -1,0 +1,63 @@
+.navbar--home
+    min-height: 3rem
+    padding: 0
+    position: relative
+    z-index: 3999
+    .container-fluid
+        button.navbar-toggler
+            box-shadow: none
+        .navigation-bar
+            li
+                &:hover
+                    background: $light
+                    box-shadow: inset 0px -2px 0px 0px map-get($theme-colors, 'semiRed' )
+                    font-size: inherit
+                .dropdown-item
+                    div
+                        width: 300px
+                        p
+                            white-space: pre-wrap
+                            margin: 0
+                &[class*='dropdown'] // * as 'dropdown' may locate in anywhere inside class Attr
+                    svg
+                        margin-left: 5px
+                        transition: all .5s
+                    &:hover svg
+                        fill: map-get($theme-colors, 'semiRed' )
+                        transition: all .5s
+                        transform: translateY(3px)
+                .dropdown-menu
+                    li:last-child
+                        border-bottom: none !important
+@media ( max-width: 768px )
+    .navbar--home       
+        .container-fluid
+            position: relative !important
+            .navigation-bar
+                width: 100%
+                background: #f7f7f7
+                border: 1px solid #c7c7c7
+                > ul
+                    flex-direction: flex-column !important
+                    li
+                        transition: transform .3s
+                        transform: translateX(10px) 
+                        &:hover
+                            background: inherit
+                            box-shadow: none
+                            font-size: inherit
+                            transition: transform .3s
+                            transform: translateX(20px) 
+                            >a:first-child
+                                color: map-get($theme-colors, 'semiRed' )
+                    li.dropdown
+                        flex-direction: column
+                        ul
+                            position: relative !important
+                            background: transparent
+                            border: none !important
+                    &:first-child
+                        align-items: start !important
+                        margin-bottom: 0
+                    &:last-child
+                        width: fit-content

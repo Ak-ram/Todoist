@@ -1,0 +1,17 @@
+.footer
+    .footer__left
+        > a svg:first-child > g > path:nth-child(1)
+            display: none
+    .fakefooter
+        background: #f2ece7
+        li > a, li
+            font-size: 13px
+        li:nth-child(-n+2):not(:last-child):after
+            content: "|"
+            margin: 0 3px
+        ul:last-child
+            label, *
+                cursor: pointer
+            label
+                min-width: 160px
+                background: #dfdad5

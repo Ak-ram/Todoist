@@ -1,0 +1,89 @@
+.aside
+    transition: width .2s linear
+    overflow: hidden scroll
+    .pane-container
+        .pane
+            div:first-child>span:first-of-type
+                path
+                    stroke: #575757 !important
+                &:hover path
+                    stroke: #eb4d4d !important
+            > .archieved-content
+                // max-width: 230px
+                // min-width: 100px
+                // margin: 0 10px 0 80px
+            &:hover
+                .pane-details-side
+                    background: #363636 !important
+                    >svg:last-child
+                        opacity: 1 !important
+                .pane-dragable-side
+                    cursor: default
+                    opacity: 1
+                    > svg *
+                        stroke: #ff7066
+    details[open] summary ~ *
+        animation: sweep .2s linear
+        // summary::-webkit-details-marker
+        //     color: transparent !important
+    &:hover
+        details summary > svg
+            opacity: 1 !important
+            &:hover
+                background: #4d4d4d
+        @keyframes sweep
+            0%
+                opacity: 0
+                margin-top: -10px
+            100%
+                opacity: 1
+                margin-top: 0px
+// aside popups
+.projectsPopUp,.labelsPopUp,.filtersPopUp
+    min-width: 320px
+    transition: width .5s linear
+    width: 420px
+    background: #282828
+    border-radius: 15px
+    .popup__header
+        background: #202020
+        border-radius: 15px 15px 0 0px
+    .popup__main
+        .labels-group
+            .G
+                %bgImages
+                    height: 100px !important
+                    background-repeat: no-repeat !important
+                    background-size: 120px !important
+                    background-position: center !important
+                    border: 1px solid gray
+                    opacity: .8
+                .G-1-img
+                    @extend %bgImages
+                    background: url("https://d3ptyyxy2at9ui.cloudfront.net/assets/images/3f6214acedce0072ce3875d5948e8b4d.svg")
+                .G-2-img
+                    @extend %bgImages
+                    background: url("https://d3ptyyxy2at9ui.cloudfront.net/assets/images/28747c0c25757764f7879890a14e885a.svg")
+                %G-content
+                    > svg
+                        fill: #d6d6d638
+                .G-1-content, .G-2-content
+                    @extend %G-content
+                &:hover,&:focus,&:active
+                    .G-1-img,.G-2-img
+                        opacity: 1
+                        box-shadow: inset 0 0 74px 1px #ffffff17
+                    .G-1-content, .G-2-content
+                        > svg
+                            path:last-child
+                                opacity: 1 !important
+        .fakeFooter
+            p
+                font-size: 11px
+                overflow: hidden
+                white-space: nowrap
+    .popup__footer
+        border-radius: 0 0px 15px 15px
+        button:first-child
+            background: #353535
+

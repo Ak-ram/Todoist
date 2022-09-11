@@ -1,0 +1,21 @@
+.face
+    overflow: hidden
+    .getstarted
+        h2
+            font-size: 4.25rem
+    .images
+        background:
+            image: url(https://todoist.com/_next/static/images/header-bg@2x_d49daad6e384274c19f96f6aad65a615.webp)
+            size: contain
+        overflow: hidden
+        position: relative
+        mix-blend-mode: multiply
+        .image-wrapper
+            mix-blend-mode: multiply
+            img:last-child
+                position: absolute
+                width: clamp(calc(100% / 4), 200px, calc(100% / 2.5))
+                transform: translate(-50%, -50%)
+                top: 60%
+                left: 65%
+                mix-blend-mode: multiply

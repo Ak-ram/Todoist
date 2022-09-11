@@ -1,0 +1,79 @@
+.new-added-task
+    // border-left: 3px solid transparent !important
+    // div:first-child >span:first-child > svg > path
+    //     stroke: #fff
+    // height: 49.64px
+    background-color: transparent
+    transition: all .3s linear
+    div:last-child
+        transform: rotate(0deg)
+        transition: transform .3s linear
+    div:last-of-type,div:first-child > span:first-child
+        opacity: 0
+    &:hover
+        div:last-of-type,div:first-child > span:first-child
+            opacity: 1 !important
+    footer
+        display: none
+    section.task-comment
+        right: -243%
+        top: 60%
+        max-height: 115px
+        height: 85px
+        width: 250px
+        transform: translate(-50%, -50%)
+        opacity: 0
+        &::selection
+            background-color: #474747
+        &::before
+            content: ""
+            height: 8px
+            top: 50%
+            right: -8px
+            transform: translate(-50%,-50%) rotate(45deg)
+            width: 8px
+            background: #1a1a1a
+            position: absolute
+        textarea
+            resize: none
+            background: #1a1a1a
+            border: none
+            height: 100%
+            text-align: justify
+.new-added-task-expanded
+    div:last-of-type,div:first-child > span:first-child
+        opacity: 1
+    background: #242424
+    border: 1px solid #383838 !important
+    // height: 170px
+    align-items: start !important
+    transition: height .3s linear
+    > div:nth-child(1)
+        // display: block !important
+        flex-direction: column !important
+        align-items: start !important
+        button
+            border-radius: 0 !important
+            border-color: gold !important
+        section
+            margin: 2ch 0 0 2ch
+            >span
+                display: inline-block !important
+            div
+                display: block !important
+        > span:first-of-type
+            display: none
+    > div:nth-child(2)
+        transform-origin: 40px 70px
+        transition: transform .3s linear
+        transform: rotate(90deg)
+        >span
+            transform: rotate(-90deg)
+            color: #919191
+            &:hover
+                background: #0000005c !important
+                color: gold !important
+    footer
+        display: flex !important
+    section.task-comment
+        opacity: 1 

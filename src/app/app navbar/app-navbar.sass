@@ -1,0 +1,38 @@
+.appNavbar
+    .navbar-nav
+        li.inputField
+            width: 170px
+            svg
+                top: 10px
+            input
+                appearance: none
+                outline: none
+                background: #363636
+                padding: 3px 66px 6px 30px
+            ul.searchOptions
+                li:first-child
+                    a
+                        padding: 0 7px
+            &:hover
+                .searchOptions
+                    > li:first-child
+                        opacity: 1
+            @media ( max-width: 576px )
+                max-width: 300px
+                margin: 0 auto
+    @media ( max-width: 759px )
+        .navbar-nav
+            li
+                &:hover
+                    background: transparent !important
+                a
+                    &:focus
+                        svg,*
+                            stroke: #e43636
+                            color: #e43636
+                            fill: #e43636
+    @media ( min-width: 1024px )
+        .navbar-nav
+            li:not(li:nth-child(3))
+                &:hover
+                    background: #424242

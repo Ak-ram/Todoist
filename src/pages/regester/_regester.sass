@@ -1,0 +1,22 @@
+%separator // sass Placeholder
+    content: ''
+    position: absolute
+    width: 43%
+    height: 1px
+    background: #ddd
+    top: 50%
+
+.stand__alone__signUp
+    max-width: 500px
+    .OR-divider
+        font-size: 12px
+        position: relative
+        text-align: center
+        width: 75%
+        margin: 30px auto
+        &::before
+            @extend %separator
+            left: 0
+        &::after
+            @extend %separator
+            right: 0
